@@ -25,8 +25,8 @@ router.get("/callback",
             sameSite: "lax",
             maxAge: 24 * 60 * 60 * 1000 // 1 Day
         })
-        console.log("Cookie Set!!");
-        res.redirect(`${process.env.FRONTED_URL}/emails`);
+        const frontend_url = process.env.NODE_ENV === 'production' ? process.env.PROD_FRONTEND_URL : process.env.DEV_FRONTEND_URL
+        res.redirect(`${frontend_url}/emails`);
     }
 );
 

@@ -10,7 +10,6 @@ const cors = require("cors")
 const app = express();
 
 // Setting up CORS to allow frontend to access backend
-console.log(process.env.NODE_ENV);
 console.log("Frontend URLs : ");
 console.log(`  ${process.env.DEV_FRONTEND_URL}`);
 console.log(`  ${process.env.PROD_FRONTEND_URL}\n\n`);
