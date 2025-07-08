@@ -1,0 +1,20 @@
+# Pulling the base image form DockerHub
+FROM node:24.3.0-alpine
+
+# Working directory in the container created from the image
+WORKDIR /server
+
+# Copying the package.json and package-lock.json if there
+COPY package*.json ./
+
+# Running the command to install necessary packages like express, passport, etc.
+RUN npm install
+
+# Copying rest of the files into /server
+COPY . .
+
+# For documentation the port the express app is made to run on
+EXPOSE 5000
+
+# Final command to run the service
+CMD ["node", "app.js"]

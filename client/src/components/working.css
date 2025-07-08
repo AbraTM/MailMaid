@@ -1,0 +1,130 @@
+.working{
+    width: 100%;
+    margin-bottom: 125px;
+}
+
+.working h2{
+    max-width: 65%;
+    font-family: "Raleway";
+    font-size: 80px;
+    padding-block: 20px;
+    padding-left: 20px;
+    color: var(--background-color);
+    background-color: var(--dark-gray-color);
+    position: relative;
+}
+
+.working h2::before{
+    content: "";
+    position: absolute;
+    background-color: var(--background-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    right: -30px;
+    top: 45px;
+    z-index: 3;
+}
+
+.working h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -70px; /* controls how far the triangle sticks out */
+  width: 0;
+  height: 0;
+  border-top: 64px solid transparent;  /* half of height */
+  border-bottom: 70px solid transparent; /* half of height */
+  border-left: 70px solid var(--dark-gray-color);;       /* triangle color and width */
+}
+
+.intro-text{
+    margin-block: 100px;
+    margin-inline: 100px;
+    font-size: 35px;
+    background-color: var(--yellow-color);
+    color: var(--background-color);
+    padding: 40px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.intro-text::before{
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+}
+
+.working-l2{
+    width: 100%;
+    padding-inline: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mails-img{
+    width: 42%;
+}
+
+.working-diary-cn{
+    border: 1px solid rgba(128, 128, 128, 0.099);;
+    width: 50%;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: rgba(128, 128, 128, 0.099);
+}
+
+.working-diary {
+    color: rgba(0, 132, 255, 0.566);
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 46px,
+        rgba(0, 0, 0, 0.2) 48px
+    );
+    background-size: 100% 48px; /* matches line-height */
+    font-family: "Raleway";
+    font-size: 32px;
+    line-height: 48px; /* text sits on each line exactly */
+    padding: 8px;
+}
+
+
+.working-diary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 800px){
+    .working h2{
+        font-size: 40px;
+    }
+    .working h2::before{
+        height: 20px;
+        width: 20px;
+        top: 32px;
+        right: -20px;
+    }
+    .working h2::after{
+        right: -50px;
+        border-top: 40px solid transparent;  /* half of height */
+        border-bottom: 47.5px solid transparent; /* half of height */
+        border-left: 50px solid var(--dark-gray-color);;       /* triangle color and width */
+    }
+    .working-l2{
+        flex-direction: column;
+    }
+    .working-diary-cn{
+        width: 100%;
+    }
+    .mails-img{
+        width: 100%;
+    }
+}

@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build: ./client
+    ports: 
+      - "5172:5173"
+    container_name: frontend
+
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    container_name: backend
+
+  ml-service:
+    build: ./ml-service
+    ports:
+      - "5001:5001"
+    container_name: ml-service

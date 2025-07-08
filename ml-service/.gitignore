@@ -1,0 +1,12 @@
+# Virtual environment
+venv/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints
+
+# Data folders (large datasets, model outputs, etc.)
+data/
+models/
+
+# Git
+.git

@@ -1,0 +1,154 @@
+.finalize-details{
+    padding-top: 30px;
+    padding-bottom: 80px;
+    padding-inline: 100px;
+}
+
+.finalize-details-content{
+    width: 100%;
+    height: 92vh;
+    position: relative;
+}
+
+.p-fd{
+    width: 85%;
+    font-family: 'Raleway';
+    color: var(--background-color);
+    background-color: var(--purple-color);
+    position: relative;
+    padding: 40px 60px;
+    border-radius: 25px;
+}
+
+.p-fd::before{
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    top: 20px;
+    right: 20px;
+}
+
+.p-fd h2{
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.p-fd h4{
+    font-weight: 500;
+    font-size: 60px;
+    margin-bottom: 12px;
+}
+
+.selected-categories-list-cn{
+    border-radius: 25px;
+    padding: 40px 60px;
+    background-color: var(--background-color);
+    color: var(--dark-gray-color)
+}
+
+.selected-categories-list{
+    font-size: 32px;
+    list-style-image: url("../assets/arrow.png");
+    padding-left: 50px;
+}
+
+.selected-categories-list li{
+    margin-bottom: 6px;
+}
+
+
+.list-item-count{
+    margin-left: 12px;
+    font-size: 22px;
+    text-align: end;
+    font-weight: 200;
+}
+
+.o-del-btn{
+    background-color: var(--orange-color);
+    color: var(--background-color);
+    font-family: 'Raleway';
+    padding: 40px 80px;
+    border-radius: 25px;
+    position: absolute;
+    width: 50%;
+    right: 80px;
+    bottom: 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.o-del-btn::before{
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    top: 20px;
+    left: 20px;
+}
+
+.o-del-btn h3{
+    font-size: 38px;
+}
+
+.loading-cn{
+    margin-top: 40px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loading-cn h2{
+    font-family: 'Raleway';
+    padding-bottom: 30px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.deletion-success{
+    margin-top: 80px;
+    width: 65%;
+    font-family: 'Raleway';
+    color: var(--background-color);
+    background-color: var(--blue-color);
+    position: relative;
+    padding: 40px 60px;
+    border-radius: 25px;
+}
+
+.deletion-success::before{
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    top: 20px;
+    right: 20px;
+}
+
+.deletion-success h2{
+    font-size: 44px;
+    margin-bottom: 8px;
+}
+
+.deletion-success p{
+    font-size: 22px;
+}
+
+.go-to-gmail{
+    font-size: 26px;
+    width: 60%;
+    color: black;
+    text-decoration: none;
+    margin-top: 25px;
+}

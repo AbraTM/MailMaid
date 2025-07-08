@@ -1,0 +1,20 @@
+# Base Image from DockerHub
+FROM python:3.12.6
+
+# Working directory in the container created from the image
+WORKDIR /ml-service
+
+# Copying the requirements.txt in /app
+COPY requirements.txt .
+
+# Running the command to install necessary packages like numpy, pandas, flask, etc.
+RUN pip install -r requirements.txt
+
+# Copying rest of the files into /app
+COPY . .
+
+# For documentation the port the python flask app is made to run on
+EXPOSE 5001
+
+# Final command to run the service
+CMD ["python", "app/app.py"]

@@ -1,0 +1,177 @@
+.categories-cn {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.category {
+    font-family: "Raleway";
+    background-color: var(--dark-gray-color);
+    color: var(--background-color);
+    width: 80%;
+    padding: 30px 60px;
+    border-radius: 25px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.category::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.category-head-l1 {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+
+.custom-checkbox {
+    align-self: center;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    border: 2px solid rgba(128, 128, 128, 0.7);
+    outline: 2px solid var(--background-color);
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.custom-checkbox:checked {
+    background-color: white;
+    border-radius: 2px;
+    border: 2px solid rgba(128, 128, 128, 0.7);
+}
+
+.custom-checkbox:checked::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--orange-color);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.category-head-l1 h4 {
+    font-size: 40px;
+}
+
+.category-head-l1 h6{
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.category-head-text p {
+    font-size: 18px;
+}
+
+.emails-cn {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+
+.email {
+    background-color: var(--background-color);
+    color: black;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.email h5 {
+    font-size: 28px;
+}
+
+.email-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--gray-color);
+    margin-bottom: 12px;
+}
+
+.email-sub {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.email-sum {
+    font-size: 15px;
+}
+
+.email-sum>span {
+    font-weight: 600;
+}
+
+.expand-btn {
+    align-self: flex-end;
+    width: 15%;
+    font-family: 'Raleway';
+    font-size: 20px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    color: var(--background-color);
+    margin-top: 30px;
+    background-color: transparent;
+}
+
+.p-submit-choices {
+    font-family: "Raleway";
+    background-color: var(--purple-color);
+    color: var(--background-color);
+    width: 60%;
+    padding: 50px 80px;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-submit-choices::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.p-submit-choices h3{
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.p-submit-choices p{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.submit-choices-btn{
+    margin-block: 30px;
+}
+
+.category-error{
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}

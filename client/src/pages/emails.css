@@ -1,0 +1,148 @@
+.emails{
+    width: 100%;
+    padding-inline: 100px;
+    padding-top: 50px;
+    padding-bottom: 120px;
+}
+
+.email-query-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+}
+
+.o-date-input{
+    align-self: flex-end;
+    font-family: "Raleway";
+    font-size: 32px;
+    background-color: var(--orange-color);
+    color: var(--background-color);
+    width: 65%;
+    padding: 30px 60px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.o-date-input::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.date-input{
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    padding: 4px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px 0px black;
+    font-family: 'Raleway';
+    font-size: 23px;
+}
+
+.g-count-input{
+    font-family: "Raleway";
+    font-size: 32px;
+    background-color: var(--green-color);
+    color: var(--background-color);
+    width: 65%;
+    padding: 30px 60px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.g-count-input::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.count-input{
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    padding: 4px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px 0px black;
+    font-family: 'Raleway';
+    font-size: 23px;
+}
+
+.b-submit-btn{
+    align-self: flex-end;
+    font-family: "Raleway";
+    font-size: 32px;
+    background-color: var(--blue-color);
+    color: var(--background-color);
+    width: 45%;
+    padding: 30px 60px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.b-submit-btn::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.get-emails-btn{
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    padding: 4px 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0px 0px black;
+    font-family: 'Raleway';
+    font-size: 26px;
+    transition: 0.1s ease;
+}
+
+.get-emails-btn:hover{
+    scale: 0.95;
+}
+
+.preview-data{
+    margin-top: 50px;
+}
+
+.y-preview-head{
+    font-family: "Raleway";
+    font-size: 32px;
+    background-color: var(--yellow-color);
+    color: var(--background-color);
+    width: 65%;
+    padding: 30px 60px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.y-preview-head::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}

@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Nunito";
+
+  /* Color Variables */
+  --background-color: #fcfcfb;
+  --blue-color: #5286d6;
+  --yellow-color: #ffb400;
+  --orange-color: #fe8526;
+  --green-color: #107d3b;
+  --gray-color: #616263;
+  --dark-gray-color: #3a3a3a;
+  --purple-color: #9874e3;
+}

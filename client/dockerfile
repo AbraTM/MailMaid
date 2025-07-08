@@ -1,0 +1,20 @@
+# Base image used to build the frontend image
+FROM node:24.3.0-alpine
+
+# Working folder inside the conatiner
+WORKDIR /frontend
+
+# Coping first the package.json files to get install the necessary packages
+COPY package*.json ./
+
+# Command used to install all the necessary packages
+RUN npm install
+
+# coping rest of the files into the container
+COPY . .
+
+# Port the frontend runs on for documnentation
+EXPOSE 5173
+
+# Run the project
+CMD ["npm", "run", "dev", "--", "--host"]
