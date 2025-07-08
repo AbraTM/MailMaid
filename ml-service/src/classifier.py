@@ -6,6 +6,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
+from rapidfuzz import fuzz
+import re
+import json
 from pathlib import Path
 import joblib
 
@@ -13,6 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_PATH = (BASE_DIR.parent / "data" / "base_data.json").resolve()
 MODEL_PATH = (BASE_DIR.parent / "model" / "classifier_model.pkl").resolve()
 VECTORIZER_PATH = (BASE_DIR.parent / "model" / "vectorizer.pkl").resolve()
+LABEL_DATA_PATH = (BASE_DIR.parent / "data" / "label_keywords.json").resolve()
 
 # Pre-Processing / Cleaning the data
 
@@ -38,35 +42,33 @@ def pre_process(data_frame):
 
 # Initially classifing with weak labels with basic if else statements
 
+def clean_text(text):
+    text = text.lower()
+    text = re.sub(r'[^a-z0-9\s]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+with open(LABEL_DATA_PATH, "r", encoding="utf-8") as f:
+    LABEL_KEYWORDS = json.load(f)
+
 def weak_classify(email_text):
     text = email_text.lower()
-    if "swiggy" in text or "zomato" in text or "blinkit" in text or "zepto" in text or "uber eats" in text or "delivered" in text or "order" in text:
-        return "FoodOrders"
-    elif "form submission" in text or "response recorded" in text or "google form" in text:
-        return "GoogleForm"
-    elif "login attempt" in text or "new sign-in" in text or "security alert" in text:
-        return "LoginAttempt"
-    elif "invoice" in text or "receipt" in text or "payment successful" in text or "transaction" in text:
-        return "InvoiceReceipt"
-    elif "digest" in text or "quora" in text or "newsletter" in text or "weekly update" in text or "top stories" in text:
-        return "NewsLetter"
-    elif "flight" in text or "booking" in text or "pnr" in text or "hotel" in text or "reservation" in text:
-        return "TravelBooking"
-    elif "linkedin" in text or "profile views" in text or "connection request" in text or "job alert" in text:
-        return "LinkedIn"
-    elif "sale" in text or "offer" in text or "discount" in text or "deal" in text:
-        return "Promotions"
-    elif "facebook" in text or "instagram" in text or "twitter" in text or "like" in text or "comment" in text or "threads" in text or "reddit" in text:
-        return "SocialMedia"
-    else:
-        return "Others"
+    text_clean = clean_text(text)
+    for label, keywords in LABEL_KEYWORDS.items():
+        for keyword in keywords:
+            keyword_clean = clean_text(keyword)
+            score = fuzz.partial_ratio(keyword_clean, text_clean)
+            if score > 75:
+                return label
+    return "Others"
+
 
 def drop_less_frequent_labels(df):
     # Removing Weak Labels with very small count beacause they don't really help with classification
     counts = df["label"].value_counts()
     small_classes = []
     for label, count in counts.items():
-        if count < 20:
+        if count < 40:
             small_classes.append(label)
 
     df["label"] = df["label"].apply(lambda x: "Others" if x in small_classes else x)
@@ -74,15 +76,21 @@ def drop_less_frequent_labels(df):
 
 def downsample(df):
     # Downsample "Others" class as it count is much greater than any other class
-    df_majority = df[df.label == "Others"]
-    df_minority = df[df.label != "Others"]
+    majority_class = df['label'].value_counts().idxmax()
+    df_majority = df[df.label == majority_class]
+    df_minority = df[df.label != majority_class]
+
+    n_samples = 200
+    if len(df_majority) < n_samples:
+        n_samples = len(df_majority)
 
     df_majority_downsampled = resample(
         df_majority,
         replace=False,
-        n_samples=40, 
+        n_samples=n_samples, 
         random_state=10
     )
+
     df_balanced = pd.concat([df_minority, df_majority_downsampled])
     return df_balanced
 
@@ -122,7 +130,7 @@ def main():
 
     # Text Emedding (Freqeuncy Based Vectors) : TF-IDF
     # Since logistic regression can't directly understand words we need to use something called word embedding that converts words in vectors, more specifically using TF-IDF (Term Frequency Inverse Document Frequency) word embedding which is a frequency based word embedding. TF-IDF calculates how rare a frequent word in a document is in a corpus of documents, can be used to fugure out the keywords in a document.
-    vectorizer = TfidfVectorizer(stop_words="english", max_features=300)
+    vectorizer = TfidfVectorizer(stop_words="english", max_features=4000)
     X_train_vec = vectorizer.fit_transform(X_train)
     X_test_vec = vectorizer.transform(X_test)
 

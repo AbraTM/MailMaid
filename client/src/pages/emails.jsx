@@ -67,7 +67,7 @@ export default function Emails() {
             <div className='g-count-input'>
               <label htmlFor='email-count'>Select the no. of emails before the date provided you want us to check.</label>
               <br/>
-              <input type='number' id='emailCount' className='count-input' name='emailCount' value={emailQueryFrom.emailCount} onChange={handleChange}/>
+              <input type='number' id='emailCount' min="0" max="500" className='count-input' name='emailCount' value={emailQueryFrom.emailCount} onChange={handleChange}/>
             </div>
 
             <div className='b-submit-btn'>
