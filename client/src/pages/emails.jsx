@@ -1,8 +1,9 @@
 import React from 'react';
 import Loading from '../components/loading';
 import ClassifiedEmails from './classified-emails';
-import tempData from "../../emailsClassified.json";
 import "./emails.css";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function Emails() {
     const [emailQueryFrom, setEmailQueryForm] = React.useState({
@@ -26,7 +27,7 @@ export default function Emails() {
       e.preventDefault();
       setLoading(true);
       window.scrollBy({ top: 200, behavior: "smooth" });
-      const res = await fetch("http://localhost:5000/api/v1/emails", {
+      const res = await fetch(`${BACKEND_URL}/api/v1/emails`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(emailQueryFrom),

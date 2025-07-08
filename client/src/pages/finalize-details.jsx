@@ -4,6 +4,8 @@ import Loading from "../components/loading.jsx";
 import GmailPNG from "../assets/gmail.png";
 import "./finalize-details.css";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 export default function FinalizeDetails() {
     const location = useLocation();
     const data = location.state.categories;
@@ -25,7 +27,7 @@ export default function FinalizeDetails() {
         setDeleting(true);
         window.scrollBy({ top: 1000, behavior: "smooth"})
         try {
-            const res = await fetch("http://localhost:5000/api/v1/emails/handle-deletion", {
+            const res = await fetch(`${BACKEND_URL}/api/v1/emails/handle-deletion`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

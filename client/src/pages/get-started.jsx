@@ -2,9 +2,11 @@ import React from 'react'
 import "./get-started.css"
 import GmailPNG from "../assets/gmail.png"
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 export default function GetStarted() {
     const attemptOAuthLogin = () => {
-        window.location.href = "http://localhost:5000/api/v1/auth/google";
+        window.location.href = `${BACKEND_URL}/api/v1/auth/google`;
     }
     return (
         <div className='get-started-page'>
