@@ -8,12 +8,17 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cors = require("cors")
 const app = express();
+
 // Setting up CORS to allow frontend to access backend
-console.log("Frontend URL: " + process.env.FRONTED_URL)
-const corsOptions = {
-    origin: [process.env.FRONTED_URL],
-    credentials: true
+const allowedOrigins = process.env.FRONTEND_URL.split(",");
+console.log("Frontend URLs: ");
+for(const url of allowedOrigins){
+    console.log(url);
 }
+const corsOptions = {
+    origin: allowedOrigins,
+    credentials: true
+};
 app.use(cors(corsOptions))
 
 // Essential Middleware
