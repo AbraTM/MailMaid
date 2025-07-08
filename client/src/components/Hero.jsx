@@ -4,7 +4,7 @@ import "./hero.css";
 
 export default function Hero() {
   return (
-    <div className="hero">
+    <div className="hero" id="hero">
         <div className="main-graphic">
             <div className="blue"></div>
             <div className="gray"></div>

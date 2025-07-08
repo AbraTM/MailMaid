@@ -4,7 +4,7 @@ import MailsPNG from "../assets/mails.jpg";
 
 export default function Working() {
     return (
-      <div className='working'>
+      <div className='working' id="working">
         <h2>How Mail Maid Works ?</h2>
         <p className="intro-text">
           We use advanced AI to analyze and classify your emails so you can easily decide what to delete.
