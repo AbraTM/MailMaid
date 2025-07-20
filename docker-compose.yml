@@ -4,12 +4,16 @@ services:
     ports: 
       - "5172:5173"
     container_name: frontend
+    env_file:
+      - ./client/.env.development
 
   backend:
     build: ./server
     ports:
       - "5000:5000"
     container_name: backend
+    env_file:
+      - .server/.env.development
 
   ml-service:
     build: ./ml-service

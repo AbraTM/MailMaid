@@ -250,3 +250,41 @@
         right: 80px;
     }
 }
+
+@media (max-width: 420px) {
+    .hero{
+        height: 80vh;
+    }
+    .orange{
+        height: 42%;
+        width: 70%;
+    }
+    .orange::after{
+        left: 15px;
+        bottom: 5px;
+    }
+    .green{
+        width: 42%;
+        height: 42%;
+        right: 0px;
+    }
+    .green:after{
+        left: 15px;
+    }
+    .blue{
+        top:250px;
+        left: 0px;
+    }
+    .yellow{
+        width: 20%;
+        height: 35%;
+        right: 10px;
+        top: 220px;
+    }
+    .purple{
+        top: 320px;
+        right: 20px;
+    }
+    
+    
+}

@@ -58,7 +58,7 @@ def weak_classify(email_text):
         for keyword in keywords:
             keyword_clean = clean_text(keyword)
             score = fuzz.partial_ratio(keyword_clean, text_clean)
-            if score > 75:
+            if score > 85:
                 return label
     return "Others"
 
